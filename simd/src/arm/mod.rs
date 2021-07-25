@@ -163,6 +163,13 @@ impl F32x2 {
     }
 }
 
+impl PartialEq for F32x2 {
+    #[inline]
+    fn eq(&self, other: &F32x2) -> bool {
+        self.packed_eq(*other).all_true()
+    }
+}
+
 impl Default for F32x2 {
     #[inline]
     fn default() -> F32x2 {
